@@ -5,7 +5,7 @@ function Home() {
     const [todos, setTodos] = useState([])
     return (
         <div>
-           <h2>To Do LIST</h2> 
+           <h2>ToDo LIST</h2> 
            <Create />
            {
               todos.length === 0
