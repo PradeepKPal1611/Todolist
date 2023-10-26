@@ -4,26 +4,32 @@ import axios from 'axios';
 
 function Home() {
     const [todos, setTodos] = useState([]);
-    useEffect(() =>{
+    useEffect(() => {
         axios.get('http://localhost:3001/get')
-        .then(result => setTodos(result.data))
-        .catch(err => console.log(err))
+            .then(result => setTodos(result.data))
+            .catch(err => console.log(err))
     }, [])
     return (
         <div className='home'>
-           <h2>ToDo LIST</h2> 
-           <Create />
-           {
-              todos.length === 0
-              ?
-              <div><h2>No Record</h2></div>
-              :
-            todos.map(todo =>(
-               <div>
-                   {todo.task}
-               </div> 
-            ))
-           }
+            <h2>ToDo LIST</h2>
+            <Create />
+            {
+                todos.length === 0
+                    ?
+                    <div><h2>No Record</h2></div>
+                    :
+                    todos.map(todo => (
+                        <div className='task'>
+                            <div className='checkbox'>
+                                <BsCirclefill className='icon' />
+                                {todo.task}
+                            </div>
+                            <div>
+                                <span><BsCirclefill className='icon' /></span>
+                            </div>
+                        </div>
+                    ))
+            }
         </div>
     );
 }
