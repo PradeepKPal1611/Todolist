@@ -10,6 +10,11 @@ function Home() {
             .then(result => setTodos(result.data))
             .catch(err => console.log(err))
     }, [])
+
+    const handleEdit = () => {
+       
+    }
+
     return (
         <div className='home'>
             <h2>ToDo LIST</h2>
@@ -22,7 +27,7 @@ function Home() {
                     :
                     todos.map(todo => (
                         <div className='task'>
-                            <div className='checkbox'>
+                            <div className='checkbox' onClick={handleEdit}>
                                 <BsCirclefill className='icon' />
                                 <p>{todo.task}</p>
                             </div>
